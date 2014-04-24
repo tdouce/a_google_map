@@ -31,6 +31,7 @@ $(function(){
   var markers = [
     {name: 'London Eye, London', lat: 51.503454, long: -0.119562, description: 'The big eye in the sky'},
     {name: 'Palace of Westminster, London', lat: 51.499633, long: -0.124755, description: 'Where kings live'},
+    {name: 'Tifton', lat: 31.499633, long: -85.51, description: 'Home of the cow towns'},
   ];
 
   var infowindow = new google.maps.InfoWindow({
@@ -56,6 +57,7 @@ $(function(){
 
     // Automatically center the map fitting all markers on the screen
     map.fitBounds(bounds);
+    map.panToBounds(bounds);
   }
 
   function bindInfoWindow(marker, map, infowindow, html) {
@@ -66,11 +68,11 @@ $(function(){
   }
 
   // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
-  var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-    this.setZoom(14);
-    google.maps.event.removeListener(boundsListener);
-  });
-}
+  //var boundsListener = google.maps.event.addListener(map, 'bounds_changed', function(event) {
+  //  this.setZoom(14);
+  //  google.maps.event.removeListener(boundsListener);
+  //});
+});
 </script>
 </head>
 <body>
