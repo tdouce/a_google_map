@@ -35,8 +35,10 @@ function initialize() {
 
   // Multiple Markers
   var markers = [
-    ['London Eye, London', 51.503454,-0.119562],
-    ['Palace of Westminster, London', 51.499633,-0.124755]
+    //['London Eye, London', 51.503454,-0.119562],
+    //['Palace of Westminster, London', 51.499633,-0.124755]
+    {name: 'London Eye, London', lat: 51.503454, long: -0.119562},
+    {name: 'Palace of Westminster, London', lat: 51.499633, long: -0.124755},
   ];
 
   // Info Window Content
@@ -55,12 +57,12 @@ function initialize() {
 
   // Loop through our array of markers & place each one on the map
   for( i = 0; i < markers.length; i++ ) {
-    var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+    var position = new google.maps.LatLng(markers[i]['lat'], markers[i]['long']);
     bounds.extend(position);
     marker = new google.maps.Marker({
         position: position,
         map: map,
-        title: markers[i][0]
+        title: markers[i]['name']
     });
 
     // Allow each marker to have an info window
