@@ -2,6 +2,7 @@
 <html>
 <head>
 <script src="/Users/travisdouce/code/clash_of_the_coders/jquery.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
 <style>
 #map_wrapper {
   height: 400px;
@@ -15,14 +16,7 @@
 </style>
 <script>
 
-jQuery(function($) {
-  // Asynchronously Load the map API
-  var script = document.createElement('script');
-  script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
-  document.body.appendChild(script);
-});
-
-function initialize() {
+$(function(){
   var map;
   var bounds = new google.maps.LatLngBounds();
   var mapOptions = {
