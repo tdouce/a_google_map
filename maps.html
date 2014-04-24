@@ -49,9 +49,9 @@ function initialize() {
     var position = new google.maps.LatLng(current_marker['lat'], current_marker['long']);
     bounds.extend(position);
     marker = new google.maps.Marker({
-        position: position,
-        map: map,
-        title: current_marker['name']
+      position: position,
+      map: map,
+      title: current_marker['name']
     });
 
     // Info Window Content
@@ -66,8 +66,8 @@ function initialize() {
 
   function bindInfoWindow(marker, map, infowindow, html) {
     google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(html);
-        infowindow.open(map, marker);
+      infowindow.setContent(html);
+      infowindow.open(map, marker);
     });
   }
 
