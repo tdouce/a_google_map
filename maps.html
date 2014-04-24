@@ -40,17 +40,17 @@ $(function(){
 
   // Loop through our array of markers & place each one on the map
   for( i = 0; i < markers.length; i++ ) {
-    var current_marker = markers[i];
-    var position = new google.maps.LatLng(current_marker['lat'], current_marker['long']);
+    var marker_data = markers[i];
+    var position = new google.maps.LatLng(marker_data['lat'], marker_data['long']);
     bounds.extend(position);
     var marker = new google.maps.Marker({
       position: position,
       map: map,
-      title: current_marker['name']
+      title: marker_data['name']
     });
 
     // Info Window Content
-    var infoWindowContent = '<div class="info_content">' + '<h3 class="name">' + current_marker['name'] + '</h3><p class="description">' + current_marker['description'] + '</p></div>';
+    var infoWindowContent = '<div class="info_content">' + '<h3 class="name">' + marker_data['name'] + '</h3><p class="description">' + marker_data['description'] + '</p></div>';
 
     // add an event listener for this marker
     bindInfoWindow(marker, map, infowindow, infoWindowContent);
